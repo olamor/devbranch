@@ -1,0 +1,31 @@
+1) Вивід інформації про систему і залізо:
+	inxi -b
+
+2) Показати публічну ІР адресу:
+	 curl ifconfig.me
+
+3) Список користувачів, які ввійшли в систему:
+	w
+
+4) Скопіювати файл між двома ОС Linux зі свого Linux (якщо скопіювати папку, то scp -r ...):
+	scp user@remote.host1:/directory/file.txt user@remote.host2:/some/directory/
+
+5) Вивід інформації про USB-шини і підключених до них пристроїв. Наприклад, дізнатись чи підключений токен:
+	lsusb
+
+6) Вивід інформації про PCI-шини і пристроїв на них. Наприклад, подивитись назву нового WIFI адаптера, на якого не встановився автоматично драйвер:
+	lspci
+
+7) Зменшити розмір PDF файлу:
+	gs -sDEVICE=pdfwrite -dCompatibilityLevel=1.4 -dPDFSETTINGS=/ebook -dNOPAUSE -dQUIET -dBATCH -sOutputFile=output.pdf input.pdf
+
+8) Було завдання зібрати інформацію про системи усіх користувачів. Використовувався Ansible. Деякі команди:
+  
+  а)показати марку дисків:
+	sudo fdisk -l | grep Disk\ model: 
+
+  б)показати реліз ОС:
+	cat /etc/lsb-release | grep DESCRIPTION
+
+  в)показати чи пристуній користувач, наприклад, admin
+	cat /etc/passwd | awk -F: '{print $1}' | grep admin
