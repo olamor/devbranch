@@ -134,13 +134,14 @@ echo ""
 echo ""
 echo ""
 
-sudo apt-get install openssl -y
+sudo apt-get install unzip openssl -y
 sudo openssl req -x509 -nodes -days 3650 -newkey rsa:2048 -keyout /etc/ssl/private/localhost.key -out /etc/ssl/certs/localhost.crt -subj "/C=SI/ST=Ljubljana/L=Ljubljana/O=Security/OU=IT Department/CN=www.example.com"
 cd ~
-wget https://github.com/olamor/devbranch/blob/main/WP_LAMP/default-ssl.conf
+wget https://github.com/olamor/devbranch/archive/refs/heads/main.zip
+unzip main.zip
 sudo rm /etc/apache2/sites-available/default-ssl.conf
-sudo cp default-ssl.conf /etc/apache2/sites-available/
-
+sudo cp devbranch-main/Lesson8/default-ssl.conf /etc/apache2/sites-available/
+rm -r devbranch-main
 sudo a2enmod ssl
 sudo a2ensite default-ssl
 sudo service apache2 reload
