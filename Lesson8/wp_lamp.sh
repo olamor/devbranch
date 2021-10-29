@@ -62,9 +62,11 @@ echo ""
 echo ""
 
 sleep 1
+
 sudo apt update -y
 sudo apt install apache2 apache2-utils -y
 sudo a2enmod rewrite
+sudo a2enmod ssl
 sudo systemctl restart apache2
 
 
@@ -125,6 +127,29 @@ echo ""
 echo ""
 
 echo "=============================================="
+echo "               Installing SSL"
+echo "=============================================="
+
+echo ""
+echo ""
+echo ""
+
+sudo apt-get install openssl -y
+sudo openssl req -x509 -nodes -days 3650 -newkey rsa:2048 -keyout /etc/ssl/private/localhost.key -out /etc/ssl/certs/localhost.crt -subj "/C=SI/ST=Ljubljana/L=Ljubljana/O=Security/OU=IT Department/CN=www.example.com"
+cd ~
+wget https://github.com/olamor/devbranch/blob/main/WP_LAMP/default-ssl.conf
+sudo rm /etc/apache2/sites-available/default-ssl.conf
+sudo cp default-ssl.conf /etc/apache2/sites-available/
+
+sudo a2enmod ssl
+sudo a2ensite default-ssl
+sudo service apache2 reload
+
+echo ""
+echo ""
+echo ""
+
+echo "=============================================="
 echo "               Create DB"
 echo "=============================================="
 
@@ -140,7 +165,7 @@ mysql -uroot -p${PASSWORDROOT} -e "GRANT ALL PRIVILEGES ON $DB.* TO '$USER'@'loc
 mysql -uroot -p${PASSWORDROOT} -e "FLUSH PRIVILEGES";
 mysql -uroot -p${PASSWORDROOT} -e "show databases;"
 
-echo "====================================================================="
-echo "If you drank coffee, go to http://<your IP> to continue instalation"
-echo "====================================================================="
 
+echo "====================================================================="
+echo "If you drank coffee, go to https://<your IP> to continue instalation"
+echo "====================================================================="
