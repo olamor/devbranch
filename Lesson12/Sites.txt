@@ -1,0 +1,8 @@
+ARP
+https://zvondozvon.ru/tehnologii/protokoli/arp
+https://ru.wikipedia.org/wiki/ARP
+http://integrator.adior.ru/index.php/tcp-ip-network/125-arp-opredelenie-mac-adresov-v-lokalnoj-seti
+
+DHCP
+https://docs.microsoft.com/ru-ru/windows-server/networking/technologies/dhcp/dhcp-top
+https://selectel.ru/blog/dhcp-protocol/
