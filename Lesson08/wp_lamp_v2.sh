@@ -153,7 +153,7 @@ cd ~
 wget https://github.com/olamor/devbranch/archive/refs/heads/main.zip
 unzip main.zip
 sudo rm /etc/apache2/sites-available/default-ssl.conf
-sudo cp devbranch-main/Lesson8/default-ssl.conf /etc/apache2/sites-available/
+sudo cp devbranch-main/Lesson08/default-ssl.conf /etc/apache2/sites-available/
 rm -r devbranch-main
 sudo a2enmod ssl
 sudo a2ensite default-ssl
