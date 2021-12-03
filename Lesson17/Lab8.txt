@@ -1,0 +1,47 @@
+Quiz Questions:
+
+1) When PC1 pings PC4, what type of packet is sent to the hub initially?
+   A: ARP. Broadcast packet
+
+
+2) Who receives the packet? 
+   A: PC2, PC3, PC4
+
+
+3) Who receives the return traffic from PC4 to PC1?
+   A: PC1, PC2, PC3
+
+
+4) When ping traffic is sent from PC1 to PC4, who receives the traffic?
+   A: PC2, PC3, PC4
+
+=================== 
+
+5) Assume that the Switch1's MAC address table is empty. When PC5 pings PC8, what type of packet is sent to the switch initially?
+   A: ARP. Broadcast packet
+
+
+6) Who receives the packet?
+   A: PC6, PC7, PC8
+
+
+7) Who receives the return traffic from PC8 to PC5? 
+   A: PC5
+
+
+8) When ping traffic is sent from PC5 to PC8, who receives the traffic?
+   A: PC8
+
+===================
+
+9) How many broadcast domains are there in Network 1?
+   A: 1
+
+
+10) How many broadcast domains are there in Network 2?
+   A: 1
+
+
+11) How may collision domains in Network 1 and Network 2?
+   A: Network 1 = 1 collision domains
+      Network 2 = 4 collision domains
